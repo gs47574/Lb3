@@ -4,28 +4,75 @@
 using namespace std;
 
 
-static const size_t n = 100;
-static int liczba;
- 
+
+
 int main()
+//wyswietlanie zawartosci tablicy
 {
-    int tab[n];
-    std::cout << "Podaj zakres: ";
-    std::cin >> liczba;
- 
-    srand(static_cast<unsigned int>(time(NULL)));
- 
-    for(size_t i = 0; i < n; ++i)
+	const int size = 20;
+	
+    int tab[size];
+     
+    srand(time(NULL));
+	 
+    for(int i = 0; i < size; i++)
     {
-        tab[i] = rand() % liczba + 1;
+        tab[i] = rand() % 100;
+        
     }
-    // Prezentacja danych
-    for(size_t i = 0; i < n; ++i)
+// Prezentacja danych
+    for(int i = 0; i < size; i++)
     {
-        std::cout << tab[i] << ' ';
+        cout << tab[i] << " ";
     }
-    std::cout << '\n';
+    cout << '\n';cout<<endl;
     
+//sortowanie w porzadku rosnacym 
+   	for (int i = 0; i < size - 1; i++){
+   		for(int j = 0; j < size - 1; j++){
+   			if (tab[j] > tab[j+1]){
+   				swap(tab[j],tab[j+1]);
+			   }
+		   }
+	   }
+	
+// Prezentacja danych
+    for(int i = 0; i < size; i++)
+    {
+        cout << tab[i] << " ";
+    }
+   cout << '\n';
+	cout<<endl;	
+
+//wartosc min, max, 
+	
+	cout <<"min:" << tab[0]; 
+	cout<<endl;
+	cout <<"max:" << tab[size-1];
+	cout<<endl;
+
+	
+//mid
+
+	
+	
+  
+	float sum;
+    float average;
+	for(int i = 0; i < size; i++)
+    {
+        sum += tab[i]; 
+    }	
+    
+    average = sum / size;
+    
+//wyswietlanie
+
+cout<<"mid:"<< average;
+    
+	
+	
+	
 	return 0;
     
 
